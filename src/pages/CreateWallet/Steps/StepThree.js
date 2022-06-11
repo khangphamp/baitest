@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Button from '@/components/common/Button';
 import CreateWalletSuccess from '@/components/Popup/CreateWalletSuccess';
 function StepThree({ phrase6, setStep }) {
-    const [onCopy, setOnCopy] = useState(false);
+    const [onOpen, setOnOpen] = useState(false);
     return (
         <div className="flex flex-col h-screen">
             <div className="flex-1 p-5">
@@ -35,11 +35,11 @@ function StepThree({ phrase6, setStep }) {
 
             <div className="w-full h-[170px] bg-white py-8 flex flex-col justify-between p-5 shadow-type1">
                 <h4 className="text-black-dark font-san500 text-[17px]">How does this work?</h4>
-                <Button onClick={() => setStep(3)} className="text-black-dark font-san700 text-[17px]">
+                <Button onClick={() => setOnOpen(true)} className="text-black-dark font-san700 text-[17px]">
                     Submit
                 </Button>
             </div>
-            <CreateWalletSuccess />
+            <CreateWalletSuccess onOpen={onOpen} setOnOpen={setOnOpen} />
         </div>
     );
 }

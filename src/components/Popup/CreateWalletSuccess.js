@@ -3,8 +3,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import LayoutPopup from '../common/LayoutPopup';
 import { ReactComponent as Check } from '@/assets/icons/check.svg';
 import Button from '../common/Button';
-function CreateWalletSuccess(props) {
-    const [open, setOpen] = useState(true);
+function CreateWalletSuccess({ onOpen, setOnOpen }) {
     const [check, setCheck] = useState([false, false, false]);
 
     const isPass = useMemo(() => {
@@ -17,7 +16,7 @@ function CreateWalletSuccess(props) {
         setCheck(newCheck);
     };
     return (
-        <LayoutPopup onOpen={open} handleClose={() => setOpen()}>
+        <LayoutPopup onOpen={onOpen} handleClose={() => setOnOpen(false)}>
             <div className="flex flex-col justify-between items-center p-5 gap-5">
                 <Check className="fill-white" />
                 <h4 className="text-black-dark font-san700 text-[22px]">Your wallet has been created!</h4>
